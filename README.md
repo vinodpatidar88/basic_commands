@@ -2,6 +2,7 @@
 
 ```
 bundle exec sidekiq
+bundle exec sidekiq -d -L log/sidekiq.log
 ps aux | grep sidekiq
 ```
 
