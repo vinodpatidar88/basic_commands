@@ -20,6 +20,7 @@ $redis.expire("#{@otp_value}:#{@mobile_number}", 300)
 If $redis.keys("*:#{@mobile_number}").present?
      @otp_value = $redis.keys("*:#{@mobile_number}").map { |key| $redis.get(key) }[0]
 End
+$redis.del("#{params[:otp]}:#{params[:mobile_number]}")
 ```
 
 ## Redis Specific version Update
