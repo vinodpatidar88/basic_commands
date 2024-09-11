@@ -121,3 +121,12 @@ psql -U your_username -d your_database;
 SELECT * FROM pg_stat_activity;
 SELECT pg_terminate_backend(your_pid); kill activitys
 ```
+
+#certbot ssl certification
+
+```
+ssl certifacted renewal command lines
+sudo certbot renew
+sudo certbot certificates
+sudo certbot renew --dry-run
+sudo systemctl reload nginx 
