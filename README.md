@@ -122,7 +122,7 @@ SELECT * FROM pg_stat_activity;
 SELECT pg_terminate_backend(your_pid); kill activitys
 ```
 
-#certbot ssl certification
+## certbot ssl certification
 
 ```
 ssl certifacted renewal command lines
@@ -130,3 +130,13 @@ sudo certbot renew
 sudo certbot certificates
 sudo certbot renew --dry-run
 sudo systemctl reload nginx 
+```
+
+
+## Tmux Session
+
+tmux new -s mysession
+tmux ls
+tmux attach -t mysession
+Ctrl + b, then d (Detach from a session (inside tmux))
+tmux kill-session -t mysession
