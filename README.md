@@ -7,6 +7,7 @@ ps aux | grep sidekiq
 ```
 
 ## Redis
+
 ```
 redis-server
 
@@ -15,7 +16,7 @@ example redis set value on mobile number
 $redis = Redis.new(url: 'redis://localhost:6379/0')
 
 $redis.set("#{@otp_value}:#{@mobile_number}", @otp_value)
-$redis.expire("#{@otp_value}:#{@mobile_number}", 300) 
+$redis.expire("#{@otp_value}:#{@mobile_number}", 300)
 
 If $redis.keys("*:#{@mobile_number}").present?
      @otp_value = $redis.keys("*:#{@mobile_number}").map { |key| $redis.get(key) }[0]
@@ -50,12 +51,13 @@ tail -f log/development.log | grep error
 ```
 
 ## Gem Library Version Show  
+
 ```
 bundle info package_name
 ```
 
-
 ## Get my ssh key
+
 ```
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ssh-add ~/.ssh/id_rsa
@@ -74,6 +76,7 @@ ssh ubuntu@3.111.198.217(public ip)
 ```
 
 ## Database Dump On Server
+
 ```
 pg_dump -U user_name -h localhost database_name >> file_name.sql
 
@@ -98,7 +101,6 @@ lsof -i :3000
 Kill -9 ip
 ```
 
-
 ## Screen Session Setup
 
 ```
@@ -109,7 +111,6 @@ screen -S session_name;  new session create
 screen -X -S sidekiq_running quit;
 
 ```
-
 
 ## Postgresql
 
@@ -129,14 +130,15 @@ ssl certifacted renewal command lines
 sudo certbot renew
 sudo certbot certificates
 sudo certbot renew --dry-run
-sudo systemctl reload nginx 
+sudo systemctl reload nginx
 ```
-
 
 ## Tmux Session
 
+```
 tmux new -s mysession
 tmux ls
 tmux attach -t mysession
 Ctrl + b, then d (Detach from a session (inside tmux))
 tmux kill-session -t mysession
+```
