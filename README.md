@@ -141,4 +141,5 @@ tmux ls
 tmux attach -t mysession
 Ctrl + b, then d (Detach from a session (inside tmux))
 tmux kill-session -t mysession
+tmux attach -t rails_server
 ```
