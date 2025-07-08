@@ -149,7 +149,7 @@ tmux attach -t rails_server
 
 ```
 DATE=$(date +%Y-%m-%d)                                                                                                                                          
-ssh ubuntu@13.200.224.111 "awk -v date=\"$DATE\" '
+ssh ubuntu@127.0.0.1(public ip) "awk -v date=\"$DATE\" '
   /Started/ {block=\"\"}
   /$DATE/ {block = block \$0 ORS}
   /Completed/ {
@@ -162,6 +162,6 @@ ssh ubuntu@13.200.224.111 "awk -v date=\"$DATE\" '
 
 ```
 DATE=$(date +%Y-%m-%d)
-ssh ubuntu@13.232.196.5 "awk '/$DATE 03:/,/$DATE 04:/' /home/ubuntu/redesyn/backend/log/production.log" > ~/Desktop/logs_${DATE}_09-10_IST.txt
+ssh ubuntu@127.0.0.1(public ip) "awk '/$DATE 03:/,/$DATE 04:/' /home/ubuntu/redesyn/backend/log/production.log" > ~/Desktop/logs_${DATE}_09-10_IST.txt
 
 ```
