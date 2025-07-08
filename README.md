@@ -143,3 +143,25 @@ Ctrl + b, then d (Detach from a session (inside tmux))
 tmux kill-session -t mysession
 tmux attach -t rails_server
 ```
+
+
+## Production Log check with Key word and IST Time
+
+```
+DATE=$(date +%Y-%m-%d)                                                                                                                                          
+ssh ubuntu@13.200.224.111 "awk -v date=\"$DATE\" '
+  /Started/ {block=\"\"}
+  /$DATE/ {block = block \$0 ORS}
+  /Completed/ {
+    if (block ~ /UsersController#send_otp/) print block
+    block=\"\"
+  }
+' /home/ubuntu/redesyn/backend/log/production.log" > ~/Desktop/logs_${DATE}_send_otp_full.txt
+
+```
+
+```
+DATE=$(date +%Y-%m-%d)
+ssh ubuntu@13.232.196.5 "awk '/$DATE 03:/,/$DATE 04:/' /home/ubuntu/redesyn/backend/log/production.log" > ~/Desktop/logs_${DATE}_09-10_IST.txt
+
+```
