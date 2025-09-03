@@ -165,3 +165,9 @@ DATE=$(date +%Y-%m-%d)
 ssh ubuntu@127.0.0.1(public ip) "awk '/$DATE 03:/,/$DATE 04:/' /home/ubuntu/redesyn/backend/log/production.log" > ~/Desktop/logs_${DATE}_09-10_IST.txt
 
 ```
+
+## Direct Connect Server Local Database Connection
+```
+add autherized key in server to connect server via ssh
+ssh -L 5432:localhost:5432 ubuntu@public ip 
+```
